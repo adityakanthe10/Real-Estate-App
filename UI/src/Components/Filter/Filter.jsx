@@ -14,7 +14,7 @@ const Filter = () => {
         <div className="bottom">
         <div className="item">
                 <label htmlFor="type">Type</label>
-               <select name="type" id=""type>
+               <select name="type" id="type">
                 <option value="">any</option>
                 <option value="buy">Buy</option>
                 <option value="rent">Rent</option>
