@@ -7,7 +7,7 @@ const Slider = ({images}) => {
   const changeSlide = (direction) =>{
     if(direction ==="left"){
       if(imageIndex ===0){
-        setImageIndex (images.length-1)
+        setImageIndex(images.length-1)
       }else{
         setImageIndex(imageIndex-1)
       }
@@ -34,7 +34,7 @@ const Slider = ({images}) => {
         <div className="arrow" onClick={()=>changeSlide("right")}>
           <img src="/arrow.png" className="right" alt="" />
         </div>
-        <div className="close" onClick={() => setImageIndex(null)}>X
+        <div className="close" onClick={() => setImageIndex(null)}>X  
         </div>
       </div>)}
       <div className="bigImage">
