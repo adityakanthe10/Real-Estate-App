@@ -8,5 +8,8 @@ Backend
 32:00 - 43:00 -> remaining creating login endpoint
 15/12/2024 Sunday
 43:00 - 1:04:50
-
+16/12/2024 Monday
+1:04:50 - 1:13:00
+19/12/2024 Thursday
+1:13:00 - 1:26:00
 
