@@ -3,7 +3,7 @@ import List from "../../components/list/List";
 import { AuthContext } from "../../context/AuthContext";
 import apiRequest from "../../lib/apiRequest";
 import "./profilePage.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useContext } from "react";
 
 function ProfilePage() {
@@ -26,7 +26,9 @@ function ProfilePage() {
         <div className="wrapper">
           <div className="title">
             <h1>User Information</h1>
-            <button>Update Profile</button>
+            <Link to="/profile/update">
+              <button>Update Profile</button>
+            </Link>
           </div>
           <div className="info">
             <span>
