@@ -4,15 +4,17 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import apiRequest from "../../lib/apiRequest";
 import CloudinaryUploadWidget from "../../components/uploadWidget/UploadWidget";
+import { useNavigate } from "react-router-dom";
 
 function NewPostPage() {
   const [value, setValue] = useState("");
   const [error, setError] = useState("");
   const [images, setImages] = useState([]);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
+    const formData = new FormData(e.target);
     const inputs = Object.fromEntries(formData);
 
     try {
@@ -27,10 +29,10 @@ function NewPostPage() {
           type: inputs.type,
           property: inputs.property,
           latitude: inputs.latitude,
-          longitute: inputs.longitude,
+          longitude: inputs.longitude,
           images: images,
         },
-        postDetails: {
+        postDetail: {
           desc: value,
           utilities: inputs.utilities,
           pet: inputs.pet,
@@ -41,6 +43,7 @@ function NewPostPage() {
           restaurant: parseInt(inputs.restaurant),
         },
       });
+      navigate("/" + res.data.id);
     } catch (err) {
       console.log(err);
       setError(error);
@@ -153,14 +156,17 @@ function NewPostPage() {
         </div>
       </div>
       <div className="sideContainer">
+        {images.map((image, index) => (
+          <img src={image} key={index} alt="" />
+        ))}
         <CloudinaryUploadWidget
           uwConfig={{
             multiple: true,
             cloudName: "dr7nw3u0l",
             uploadPreset: "estate",
-            maxImageFileSize: 2000000,
             folder: "posts",
           }}
+          setState={setImages}
         />
       </div>
     </div>
