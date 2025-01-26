@@ -8,7 +8,7 @@ import NewPostPage from "./routes/newPostPage/newPostPage";
 import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage";
 import { Layout, RequireAuth } from "./routes/layout/layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { singlePageLoader } from "./lib/loaders";
+import { listPageLoader, singlePageLoader } from "./lib/loaders";
 
 function App() {
   const router = createBrowserRouter([
@@ -23,6 +23,7 @@ function App() {
         {
           path: "/list",
           element: <ListPage />,
+          loader: listPageLoader,
         },
         {
           path: "/:id",
