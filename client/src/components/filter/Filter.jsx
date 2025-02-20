@@ -7,7 +7,7 @@ function Filter() {
   const [query, setQuery] = useState({
     type: searchParams.get("type") || "",
     city: searchParams.get("city") || "",
-    property: searchParams.get("proeprty") || "",
+    property: searchParams.get("property") || "",
     minPrice: searchParams.get("minPrice") || 0,
     maxPrice: searchParams.get("maxPrice") || 1000000,
     bedroom: searchParams.get("bedroom") || 1,
@@ -38,8 +38,8 @@ function Filter() {
             id="city"
             name="city"
             placeholder="City Location"
-            onChange={{ handleChange }}
-            defaultValue={query.city}
+            onChange={handleChange}
+            value={query.city}
           />
         </div>
       </div>
@@ -49,8 +49,8 @@ function Filter() {
           <select
             name="type"
             id="type"
-            onChange={{ handleChange }}
-            defaultValue={query.type}
+            onChange={handleChange}
+            value={query.type}
           >
             <option value="">any</option>
             <option value="buy">Buy</option>
@@ -62,8 +62,8 @@ function Filter() {
           <select
             name="property"
             id="property"
-            onChange={{ handleChange }}
-            defaultValue={query.property}
+            onChange={handleChange}
+            value={query.property}
           >
             <option value="">any</option>
             <option value="apartment">Apartment</option>
@@ -79,8 +79,8 @@ function Filter() {
             id="minPrice"
             name="minPrice"
             placeholder="any"
-            onChange={{ handleChange }}
-            defaultValue={query.minPrice}
+            onChange={handleChange}
+            value={query.minPrice}
           />
         </div>
         <div className="item">
@@ -90,8 +90,8 @@ function Filter() {
             id="maxPrice"
             name="maxPrice"
             placeholder="any"
-            onChange={{ handleChange }}
-            defaultValue={query.maxPrice}
+            onChange={handleChange}
+            value={query.maxPrice}
           />
         </div>
         <div className="item">
@@ -102,7 +102,7 @@ function Filter() {
             name="bedroom"
             placeholder="any"
             onChange={{ handleChange }}
-            defaultValue={query.bedroom}
+            value={query.bedroom}
           />
         </div>
         <button onClick={handleFilter}>
