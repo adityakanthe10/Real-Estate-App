@@ -2,7 +2,7 @@ import prisma from "../lib/prisma.js";
 import bcrypt from "bcrypt";
 
 export const getUsers = async (req, res) => {
-  console.log("it works");
+  // console.log("it works");
   try {
     const users = await prisma.user.findMany();
     res.status(200).json(users);
