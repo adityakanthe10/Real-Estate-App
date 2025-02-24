@@ -48,6 +48,7 @@ enum Type {
   buy 
   rent
 }
+
 enum Property{
   condo
   apartment

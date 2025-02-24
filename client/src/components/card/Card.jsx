@@ -2,11 +2,18 @@ import { Link } from "react-router-dom";
 import "./card.scss";
 
 function Card({ item }) {
-  console.log("item" + item);
+  console.log("Card Item: ", item);
+
+  // console.log("item.images" + item.images[0]);
+  if (!item) {
+    return <div>Loading...</div>; // Or return null
+  }
+
   return (
     <div className="card">
       <Link to={`/${item.id}`} className="imageContainer">
-        <img src={item.images[0]} alt="" />
+        <img src={item?.images[0] || "/placeholder.webp"} alt="property" />
+        {/* <img src={item.images} alt="" /> */}
       </Link>
       <div className="textContainer">
         <h2 className="title">
