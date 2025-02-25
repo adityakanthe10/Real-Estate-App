@@ -57,15 +57,17 @@ export const getPost = async (req, res) => {
               },
             },
           });
-          res.status(200).json({ ...post, isSaved: saved ? true : false });
+          return res
+            .status(200)
+            .json({ ...post, isSaved: saved ? true : false });
         } else {
           userId = null;
+          return res.status(200).json({ ...post, isSaved: false });
         }
       });
     }
-    res.status(200).json({ ...post, isSaved: false });
   } catch (error) {
-    res.status(500).json({ message: "Failed to get Post", error });
+    return res.status(500).json({ message: "Failed to get Post", error });
   }
 };
 
