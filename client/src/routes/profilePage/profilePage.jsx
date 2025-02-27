@@ -78,7 +78,15 @@ function ProfilePage() {
       </div>
       <div className="chatContainer">
         <div className="wrapper">
-          <Chat />
+          <Suspense fallback={<p>...Loading</p>}>
+            <Await
+              // eslint-disable-next-line no-undef
+              resolve={posts.chatResponse}
+              errorElement={<p>Error loading posts!</p>}
+            >
+              {(chatResponse) => <Chat chats={chatResponse.data} />}
+            </Await>
+          </Suspense>
         </div>
       </div>
     </div>
